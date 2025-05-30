@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Gamestore.Azure.Functions": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7276",
+      "launchBrowser": false
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<div>
+  <gamestore-filter-wrapper
+    [pagesSubject]="pagesSubject"
+    [gamesLoadSubject]="gamesLoadSubject"
+    (apply)="loadGames($event)"
+  >
+  <gamestore-list
+  [addLink] ="addGameLink"
+  [listGames]="gamesList"></gamestore-list>
+  </gamestore-filter-wrapper>
+</div>

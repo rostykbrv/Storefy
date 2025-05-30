@@ -1,0 +1,51 @@
+<header>
+    <nav class="navbar">
+      <a href="#" class="logo-text">Storefy</a>
+      <ul class="header-nav-links">
+        <li><a href="#">{{labels.gamesMenuItem | uppercase}}</a></li>
+        <li><a href="#">{{labels.genresMenuItem | uppercase}}</a></li>
+        <li><a href="#">{{labels.publishersMenuItem | uppercase}}</a></li>
+        <li><a href="#">{{labels.ordersMenuItem | uppercase}}</a></li>
+        <li><a href="#">{{labels.basketMenuItem | uppercase}}</a></li>
+        <li><a
+            routerLink="{{ links.get(pageRoutes.Login) }}"
+            class="login"
+            >{{ isAuth ? labels.exitButtonLabel : labels.loginButtonLabel | uppercase }}</a></li>
+            <span class="locales-container">
+              <gamestore-selector-input
+                name=""
+                [control]="control"
+                [values]="locales"
+              ></gamestore-selector-input>
+            </span>
+      </ul>
+
+      <div class="toggle_btn" (click)="toggleDropdown()">
+        <i class="fa fa-bars"></i> 
+      </div>
+    </nav>
+
+    <div class="dropdown-menu" [class.open]="dropdownOpen">
+        <li><a href="#">{{labels.gamesMenuItem | uppercase}}</a></li>
+        <li><a href="#">{{labels.genresMenuItem | uppercase}}</a></li>
+        <li><a href="#">{{labels.publishersMenuItem | uppercase}}</a></li>
+        <li><a href="#">{{labels.ordersMenuItem | uppercase}}</a></li>
+        <li><a href="#">{{labels.basketMenuItem | uppercase}}</a></li>
+        <li><a
+            routerLink="{{ links.get(pageRoutes.Login) }}"
+            class="login"
+            >{{ isAuth ? labels.exitButtonLabel : labels.loginButtonLabel | uppercase }}</a></li>
+            <span class="locales-container">
+              <gamestore-selector-input
+                name=""
+                [control]="control"
+                [values]="locales"
+              ></gamestore-selector-input>
+            </span>
+    </div>
+
+    <div class="header-content">
+      <h1>{{labels.headerBannerMainLabel}}</h1>
+      <p>{{labels.headerBannerSecondLabel}}</p>
+    </div>
+</header>

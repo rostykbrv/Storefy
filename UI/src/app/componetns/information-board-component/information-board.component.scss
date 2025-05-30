@@ -1,0 +1,207 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 85px;
+    padding-right: 85px;
+    padding-bottom: 80px;
+}
+
+.get-in-touch, .twitter-updates, .from-the-blog{
+    height: 471px;
+    width: 350px;
+    background-color: #F7F7F7;
+}
+
+.form-title{
+    color: #3E4554;
+    font-family: Montserrat;
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 25px;
+    padding-bottom: 24px;
+}
+
+.get-in-touch .name, .email{
+    height: 64px;
+    width: 300px;
+    padding:0 25px 19px 25px;
+}
+
+.get-in-touch .message{
+    height: 124px;
+    width: 300px;
+    padding:0 25px 20px 25px;
+}
+
+.name, .email, .message p{
+    color: #3E4554;
+    font-family: "Open Sans";
+    font-size: 14px;
+}
+
+.get-in-touch-forms p{
+    margin-bottom: 5px;
+}
+
+.get-in-touch-forms input{
+    box-sizing: border-box;
+    height: 40px;
+    width: 300px;
+    border: 1px solid #7F7F7F;
+}
+
+.message input{
+    height: 100px;
+    width: 300px;
+}
+
+input{
+    background-color: #F7F7F7;
+}
+
+.btn{
+    border-radius: 0;
+    height: 45px;
+    width: 140px;
+    background-color: #FF7E2A;
+}
+
+.btn span{
+    color: #FFFFFF;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 19px;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-1, .link-2, .link-3{
+    padding:0 25px 16px 25px;
+}
+
+.divider{
+    background-color: #DCDCDC;
+    margin: 0 25px 14px 25px;
+}
+
+.link-1, .link-2, .link-3 .link-name{
+    color: #3E4554;
+    font-family: "Open Sans";
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+.post .link-name{
+    margin-bottom: 6px;
+}
+
+.twitter-updates a{
+    color: #FF7E2A;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 19px;
+    padding-bottom: 5px;
+}
+
+.twitter-updates button{
+    margin-top: 11px;
+}
+
+.post .posted{
+    color: #9B9B9B;
+    font-family: "Open Sans";
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+.news-1, .news-2, .news-3, .news-4{
+    height: 44px;
+    width: 300px;
+    padding:0 25px 16px 25px;
+}
+
+.news-1, .news-2, .news-3, .news-4 p{
+    color: #3E4554;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+.from-the-blog a{
+    height: 44px;
+    width: 300px;
+    color: #FF7E2A;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 22px;
+}
+
+.from-the-blog button{
+    margin-top: 25px;
+}
+
+@media screen and (max-width: 1220px) {
+    .container {
+      flex-direction: column;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    
+    .get-in-touch, .twitter-updates, .from-the-blog {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    .get-in-touch .name input, .get-in-touch .email input, 
+    .message input, .twitter-updates .link-1 input,
+    .twitter-updates .link-2 input, .twitter-updates .link-3 input, 
+    .from-the-blog .news-1, .from-the-blog .news-2,
+    .from-the-blog .news-3, .from-the-blog .news-4{
+        width: 90%;
+    }
+
+    .news-1, .news-2, .news-3, .news-4{
+        br{
+            display: none;
+        }
+        padding:10px 10px;
+    }
+    
+    .button{
+        padding: 0;
+        
+        .btn{
+            width: 90%;
+        }
+    }
+
+    .get-in-touch .name, .email{
+        text-align: center;
+        height: 64px;
+        width: auto;
+    }
+
+    .get-in-touch .message{
+        text-align: center;
+        height: 124px;
+        width: auto;
+    }
+    
+  }

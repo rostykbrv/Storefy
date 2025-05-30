@@ -1,0 +1,30 @@
+.radio-input-wrapper {
+    padding: 0 30px 40px 30px;
+
+    .radio-container {
+        margin-bottom: 15px;
+
+        .mat-radio-button {
+            padding-left: 15px;
+            top: 2px;
+            position: relative;
+            color: #4A4A4A;
+            font-family: "Open Sans";
+            font-size: 16px;
+        }
+    }
+
+
+    .name{
+        font-family: Montserrat;
+        font-size: 16px;
+        font-weight: 500;
+        padding-bottom: 10px;
+    }
+    
+    .mat-divider{
+        height: 1px;
+        color: #9A9A9A;
+        padding-bottom: 20px;
+    }
+}

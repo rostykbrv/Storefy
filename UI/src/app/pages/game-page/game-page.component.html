@@ -1,0 +1,21 @@
+<div class="game-info"
+  *ngIf="!!game">
+  <div class="to-list-button">
+    <a routerLink="{{ links.get(pageRoutes.Games) }}" mat-button>
+     < {{ labels.gamesReturnItem }}
+    </a>
+  </div>
+  <gamestore-info-wrapper
+    [deleteLink]="deleteGameLink"
+    [updateLink]="updateGameLink"
+  >
+    <game-info-component
+    [gameDetails]="gameInfo"
+    [canBuy]="canBuy"
+    (buyEvent)="buy()"></game-info-component>
+  </gamestore-info-wrapper>
+  <gamestore-comments
+    *ngIf="canSeeComments"
+    [gameKey]="game.key"
+  ></gamestore-comments>
+</div>

@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+span {
+    display: inline-block;
+    padding: 10px;
+}
+
+
+.list-game-container{
+    height: 258px;
+    width: 160px;
+
+    a{
+        text-decoration: none;
+    }
+
+    img{
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+    }
+}
+
+.gameType{
+    color: #545454;
+    font-family: "Open Sans";
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 18px;
+    text-align: left;
+    margin-bottom: 4px;
+}
+
+.title{
+    margin-top: 12px;
+    margin-bottom: 2px;
+    color: #3E4554;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0;
+    line-height: 22px;
+    text-align: left;
+}
+
+.price{
+    color: #404040;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 18px;
+    text-align: left;
+}

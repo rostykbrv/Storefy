@@ -1,0 +1,155 @@
+article {
+    float: right;
+    padding: 80px 0;
+    width: 100%;
+    
+    .dropdown-filter{
+        display: none;
+    }
+    
+    .toggle_btn{
+        width: 100%;
+    }
+
+    .dropdown-filter-button{
+        display: none;
+        background-color: #FF7E2A;
+        color: #F7F7F7;
+    }
+
+    .filters-container {
+        float: right;
+        width: 350px;
+        background-color: #F7F7F7;
+
+        .price-sorting{
+            padding: 0 30px;
+            padding-bottom: 40px;
+        }
+
+        .price-sorting p{
+            font-family: Montserrat;
+            font-size: 16px;
+            font-weight: 500;
+            padding-bottom: 10px;
+            margin: 0;
+        }
+
+        .price-sorting .mat-divider{
+            height: 1px;
+            color: #9A9A9A;
+            padding-bottom: 20px;
+        }
+
+        .price-sorting-input{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .price-sorting-input p{
+            color: #3E4554;
+            font-family: "Open Sans";
+            font-size: 14px;
+            margin: 0;
+            padding-bottom: 5px;
+        }
+
+        .filter-title{
+            color: #3E4554;
+            font-family: Montserrat;
+            font-size: 28px;
+            font-weight: bold;
+            padding-bottom: 35px;
+            background-color: #FFFF;
+        }
+
+        .filter-button {
+            margin-bottom: 15px;
+            text-align: center;
+
+            button{
+                color: #F7F7F7;
+                background-color: #FF7E2A;
+            }
+        }
+    }
+
+    .content-container {
+        float: left;
+        width: calc(100% - 350px);
+
+        .top-panel-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .top-panel-container p{
+            color: #3E4554;
+            font-family: Montserrat;
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 1500px) {
+    article{
+        float: none;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .filters-container{
+            display: none;
+        }
+
+        .dropdown-filter{
+            display: block;
+
+            .filter-title{
+                display: none;
+            }
+
+            .filters-container{
+                display: block;
+                width: 100%;
+            }
+
+            .price-sorting-input {
+                display: flex;
+                flex-direction: column;
+            }
+
+            gamestore-number-input {
+                width: 100%;
+            }
+        }
+        
+        .dropdown-filter-button{
+            display: block;
+        }
+
+        .content-container {
+            float: none;
+            width: 100%;
+
+            .top-panel-container{
+                width: 90%;
+                padding: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 410px) {
+    
+    .top-panel-container{
+        margin: 40px 0;
+        flex-direction: column;
+    }
+}

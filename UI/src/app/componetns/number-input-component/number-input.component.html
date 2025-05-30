@@ -1,0 +1,13 @@
+<div class="text-input-wrapper">
+  <div class = "name" *ngIf="!!title?.length">{{ title }}</div>
+  <mat-divider *ngIf="!!title?.length"></mat-divider>
+  <mat-form-field
+    style="width: 135px; height: 40px;" 
+    class="example-full-width" appearance="fill">
+    <mat-label *ngIf="!!name?.length">{{ name }}</mat-label>
+    <input type="number" matInput [formControl]="control" [errorStateMatcher]="matcher">
+    <mat-error *ngIf="isErrors">
+      {{labels.enterValidMessage}}
+    </mat-error>
+  </mat-form-field>
+</div>

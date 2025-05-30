@@ -1,0 +1,32 @@
+<div *ngIf="!!comments" class="comments-container">
+  <div class="comment-top-container">
+    <div class="comments-star">
+      <p>{{comments.length}} {{labels.commentsCountLabel}}</p>
+      <form [formGroup]="form" class="rating-group">
+        <ngx-star-rating formControlName="rating2" [id]="'rating2'"></ngx-star-rating>
+        <span>{{form.value.rating2}}</span>
+      </form>
+    </div>
+    <div>
+      <button
+      type="button"
+      mat-stroked-button
+      (click)="writeComment = !writeComment"
+      ><span>{{labels.writeCommentLabel}}</span></button>
+    </div>
+  </div>
+  <gamestore-add-comment
+    *ngIf="canAdd && writeComment"
+    [currentComment]="selectedComment"
+    [clearForm]="clearCommentInput"
+    (selectCancel)="onSelectCancel()"
+    (saveComment)="onSave($event)"
+  ></gamestore-add-comment>
+  <gamestore-comment
+    *ngFor="let comment of comments"
+    [comment]="comment"
+    (select)="onSelect($event)"
+    (deleteComment)="onDeleteComment($event)"
+    (banComment)="onBanComment($event)"
+  ></gamestore-comment>
+</div>

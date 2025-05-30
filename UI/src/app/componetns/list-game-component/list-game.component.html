@@ -1,0 +1,12 @@
+<mat-list-item class="list-game-container">
+  <a *ngIf="!!gameItem.pageLink?.length"
+  color="acient"
+  routerLink="{{ gameItem.pageLink }}"
+  >
+  <img src="{{gameItem.imageUrl}}">
+  <p class="title">{{ gameItem.title }}</p>
+  <p class="gameType">{{gameItem.gameType}}</p>
+  <p class="price">{{ gameItem.price | currency }}</p>
+</a>
+<span *ngIf="!gameItem.pageLink?.length">{{ gameItem.title }}</span>
+</mat-list-item>

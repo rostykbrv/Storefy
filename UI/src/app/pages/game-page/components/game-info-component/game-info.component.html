@@ -1,0 +1,80 @@
+<div class="game-details-info">
+  <div class="game-image">
+    <img [src]="gameDetails?.image"
+    (click)="isEnlarged = true">
+  </div>
+  <div class="popup-image" [style.display]="isEnlarged ? 'block' : 'none'">
+    <span (click)="isEnlarged = false">&times;</span>
+    <img [src]="gameDetails?.image">
+  </div>
+  <div class="game-info-component">
+      <h1>{{ gameDetails?.name }}</h1>
+      <div class="currency-rating">
+        <p>{{ gameDetails?.price | currency}}</p>
+        <div class="rating-comments">
+          <ngx-star-rating [id]="'rating'"></ngx-star-rating>
+          <span>{{ gameDetails?.commentCount }} {{labels.commentsCountLabel}}</span>
+        </div>
+      </div>
+      <mat-divider class="details-divider"></mat-divider>
+      <a class="publisher-title"
+      [routerLink]="gameDetails?.publisher?.pageLink"
+      >{{gameDetails?.publisher?.companyName}}</a>
+      <div class="realease-info">
+        <p class="details-title-info"
+        style="padding-right: 10px;">{{gameDetails?.copyType}}</p>
+        <mat-divider [vertical]="true"></mat-divider>
+        <p class="details-title-info" 
+        style="padding-left: 10px;">{{labels.releasedInfoLabel}} {{gameDetails?.releasedDate}}</p>
+      </div>
+
+      <div class="platforms-info">
+        <div class="platforms">
+          <p class="details-title">{{labels.playableOnLabel}}</p>
+          <div
+            class="platforms" 
+            *ngFor="let platform of gameDetails?.platforms">
+            <a 
+            *ngIf="!!platform.pageLink?.length"
+            [routerLink]="platform.pageLink"
+            mat-button
+            ><span>{{ platform.type }}</span></a>
+          </div>
+        </div>
+        <div class="fileSize">
+          <p class="details-title">{{labels.fileSizeLabel}}</p>
+          <p class="details-title-info">{{gameDetails?.gameSize}} {{labels.sizeLabel}}</p>
+        </div>
+      </div>
+
+      <div class="genres-info">
+        <p class="details-title"
+        style="margin-bottom: 10px;">{{labels.genresMenuItem}}</p>
+        <div
+        class="genres"
+        *ngFor="let genre of gameDetails?.genres">
+        <a
+        *ngIf="!!genre.pageLink?.length"
+        [routerLink]="genre.pageLink"
+        mat-button>{{ genre.name }}</a>
+        </div>
+      </div>
+
+      <div class="buy-button">
+        <button
+          *ngIf="canBuy"
+          type="button"
+          mat-stroked-button
+          (click)="buyEvent.emit()"
+        >
+          <span>{{ labels.buyButtonLabel }}</span>
+        </button>
+      </div>
+      
+      <mat-divider class="details-divider"></mat-divider>
+      <div class="description">
+        <h2>{{labels.gameDescriptionLabel}}</h2>
+        <p>{{gameDetails?.description}}</p>
+      </div>
+  </div>
+</div>

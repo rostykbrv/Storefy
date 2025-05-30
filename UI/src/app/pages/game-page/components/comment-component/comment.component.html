@@ -1,0 +1,73 @@
+<div *ngIf="!!comment" class="comment-container" id="comment{{comment.id}}">
+  <div class="comment-name">
+    <div class="comment-picture">
+      <img src="https://www.svgrepo.com/show/529291/user-rounded.svg">
+    </div>
+    <div class="comment-content">
+      <div class="top-comment-panel">
+        <div class="name-date">
+          <p class="user-name">{{ comment.name }}</p>
+          <p class="comment-date">{{ formattedDate }}</p>
+        </div>
+        <div class="rating-bar">
+          <form class="rating" [formGroup]="form">
+            
+          </form>
+        </div>
+      </div>
+      <div class="comment-body" [innerHtml]="comment.body"></div>
+      <div class="comment-buttons">
+        <a
+          class="like-button"
+          *ngIf="canReply"
+          href="javascript:void(0);"
+          color="accent"
+          (click) = "onLike()"
+        >
+          Like
+        </a>
+        <a
+          *ngIf="canReply"
+          href="javascript:void(0);"
+          color="accent"
+          (click)="onAction(action.Reply)"
+        >
+          {{ labels.replyButtonLabel }}
+        </a>
+        <a
+          *ngIf="canQuote"
+          href="javascript:void(0);"
+          color="accent"
+          (click)="onAction(action.Quote)"
+        >
+          {{ labels.quoteButtonLabel }}
+        </a>
+        <button
+          *ngIf="canDelete"
+          mat-raised-button
+          color="warn"
+          (click)="deleteComment.emit(comment)"
+        >
+          {{ labels.deleteButtonLabel }}
+        </button>
+        <button
+          *ngIf="canBan"
+          mat-raised-button
+          color="warn"
+          (click)="banComment.emit(comment)"
+        >
+          {{ labels.banButtonLabel }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="child-comments" *ngIf="!!comment.childComments?.length">
+    <gamestore-comment
+      *ngFor="let childComment of comment.childComments"
+      [comment]="childComment"
+      (select)="select.emit($event)"
+      (deleteComment)="deleteComment.emit($event)"
+      (banComment)="banComment.emit($event)"
+    ></gamestore-comment>
+  </div>
+</div>

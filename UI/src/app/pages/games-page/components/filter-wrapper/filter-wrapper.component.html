@@ -1,0 +1,154 @@
+<article *ngIf="!!form">
+  <div class="toggle_btn">
+    <button class="dropdown-filter-button" mat-stroked-button
+    (click)="toggleDropdown()"><i class="fa-solid fa-filter"></i> Filter</button>
+  </div>
+  <div class="dropdown-filter">
+    <aside class="filters-container" *ngIf="dropdownOpen">
+      <div class="filter-title">
+        <p>{{labels.filterMainTitle}}</p>
+      </div>
+      <div class="sorting-container">
+        <gamestore-sort-wrapper 
+        [sortControl]="getFormControl('sort')">
+        </gamestore-sort-wrapper>
+      </div>
+      <gamestore-checkboxes-input
+        [name]="labels.genresMenuItem"
+        [controls]="getFormControlArray('genres')"
+        [items]="genreItems"
+      ></gamestore-checkboxes-input>
+      <gamestore-checkboxes-input
+        [name]="labels.platformsMenuItem"
+        [controls]="getFormControlArray('platforms')"
+        [items]="platformItems"
+      ></gamestore-checkboxes-input>
+      <gamestore-checkboxes-input
+        [name]="labels.publishersMenuItem"
+        [controls]="getFormControlArray('publishers')"
+        [items]="publisherItems"
+      ></gamestore-checkboxes-input>
+  
+      <div class="price-sorting">
+        <p>Price Sorting</p>
+        <mat-divider></mat-divider>
+        <div class="price-sorting-input">
+          <div class="min-price">
+            <p>From</p>
+            <gamestore-number-input
+            [name]="labels.gameMinPriceLabel"
+            [control]="getFormControl('minPrice')"
+            ></gamestore-number-input>
+          </div>
+        <div class="max-price">
+          <p>To</p>
+          <gamestore-number-input
+          [name]="labels.gameMaxPriceLabel"
+          [control]="getFormControl('maxPrice')"
+          ></gamestore-number-input>
+        </div>
+        </div>
+      </div>
+  
+      <gamestore-radio-input
+        [name]="labels.gameDatePublishing"
+        [control]="getFormControl('datePublishing')"
+        [items]="datesPublishingItems"
+      ></gamestore-radio-input>
+  
+      <div class="filter-button">
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="applyFilters()"
+          [disabled]="form.disabled"
+        >
+          {{ labels.filterButtonLabel }}
+        </button>
+      </div>
+    </aside>
+  </div>
+  
+  <aside class="filters-container">
+    <div class="filter-title">
+      <p>{{labels.filterMainTitle}}</p>
+    </div>
+    <div class="sorting-container">
+      <gamestore-sort-wrapper 
+      [sortControl]="getFormControl('sort')">
+      </gamestore-sort-wrapper>
+    </div>
+    <gamestore-checkboxes-input
+      [name]="labels.genresMenuItem"
+      [controls]="getFormControlArray('genres')"
+      [items]="genreItems"
+    ></gamestore-checkboxes-input>
+    <gamestore-checkboxes-input
+      [name]="labels.platformsMenuItem"
+      [controls]="getFormControlArray('platforms')"
+      [items]="platformItems"
+    ></gamestore-checkboxes-input>
+    <gamestore-checkboxes-input
+      [name]="labels.publishersMenuItem"
+      [controls]="getFormControlArray('publishers')"
+      [items]="publisherItems"
+    ></gamestore-checkboxes-input>
+
+    <div class="price-sorting">
+      <p>{{labels.priceSortingMenuItem}}</p>
+      <mat-divider></mat-divider>
+      <div class="price-sorting-input">
+        <div class="min-price">
+          <p>{{labels.priceSortingFromLabel}}</p>
+          <gamestore-number-input
+          [name]="labels.gameMinPriceLabel"
+          [control]="getFormControl('minPrice')"
+          ></gamestore-number-input>
+        </div>
+      <div class="max-price">
+        <p>{{labels.priceSortingToLabel}}</p>
+        <gamestore-number-input
+        [name]="labels.gameMaxPriceLabel"
+        [control]="getFormControl('maxPrice')"
+        ></gamestore-number-input>
+      </div>
+      </div>
+    </div>
+
+    <gamestore-radio-input
+      [name]="labels.gameDatePublishing"
+      [control]="getFormControl('datePublishing')"
+      [items]="datesPublishingItems"
+    ></gamestore-radio-input>
+
+    <div class="filter-button">
+      <button
+        mat-stroked-button
+        color="primary"
+        type="button"
+        (click)="applyFilters()"
+        [disabled]="form.disabled"
+      >
+        {{ labels.filterButtonLabel }}
+      </button>
+    </div>
+  </aside>
+  
+  <div class="content-container">
+    <gamestore-pagging-wrapper
+    [pageCountControl]="getFormControl('pageCount')"
+    [pageControl]="getFormControl('page')"
+    [totalPages]="totalPages"
+  >
+  <div class="top-panel-container">
+    <p>{{labels.gamesMenuItem}}</p>
+    <gamestore-text-input
+    [name]="labels.gameNameLabel"
+    [control]="getFormControl('name')"
+    ></gamestore-text-input>
+  </div>
+    <ng-content></ng-content> 
+  </gamestore-pagging-wrapper>
+  </div>
+</article>

@@ -1,0 +1,37 @@
+.add-container {
+    margin-bottom: 10px;
+}
+
+.game-list{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 45px 55px;
+}
+
+::ng-deep .mat-list-item-content {
+    padding: 0!important;
+}
+
+::ng-deep .mat-list-base{
+    padding-top: 0!important;
+}
+
+@media (max-width: 1200px) {
+    .game-list{
+        text-align: center;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 970px) {
+    .game-list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 690px) {
+    .game-list{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

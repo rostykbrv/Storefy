@@ -1,0 +1,67 @@
+<article *ngIf="!!form">
+  <gamestore-form
+    [form]="form"
+    idName="id"
+    (save)="onSave()"
+    [pageLink]="gamePageLink"
+  >
+    <gamestore-text-input
+      [name]="labels.gameKeyLabel"
+      [control]="getFormControl('key')"
+    ></gamestore-text-input>
+    <gamestore-text-input
+      [name]="labels.gameNameLabel"
+      [control]="getFormControl('name')"
+    ></gamestore-text-input>
+    <gamestore-number-input
+      [name]="labels.gamePriceLabel"
+      [control]="getFormControl('price')"
+    ></gamestore-number-input>
+    <gamestore-number-input
+      [name]="labels.gameDiscontinuedLabel"
+      [control]="getFormControl('discontinued')"
+    ></gamestore-number-input>
+    <gamestore-number-input
+      [name]="labels.gameUnitInStockLabel"
+      [control]="getFormControl('unitInStock')"
+    ></gamestore-number-input>
+    <gamestore-textarea-input
+      [name]="labels.gameDescriptionLabel"
+      [control]="getFormControl('description')"
+    ></gamestore-textarea-input>
+    <gamestore-text-input
+    [name]="'Image URL'"
+    [control]="getFormControl('imageUrl')"
+    ></gamestore-text-input>
+    <gamestore-text-input
+    [name]="'Copy Type'"
+    [control]="getFormControl('copyType')"
+    ></gamestore-text-input>
+    <gamestore-text-input
+    [name]="'Released Date'"
+    [control]="getFormControl('releasedDate')"
+    ></gamestore-text-input>
+    <gamestore-text-input
+    [name]="'Game Size'"
+    [control]="getFormControl('gameSize')"
+    ></gamestore-text-input>
+    <gamestore-checkboxes-input
+      [name]="labels.genresMenuItem"
+      [controls]="getFormControlArray('genres')"
+      [items]="genreItems"
+    ></gamestore-checkboxes-input>
+    <gamestore-checkboxes-input
+      [name]="labels.platformsMenuItem"
+      [controls]="getFormControlArray('platforms')"
+      [items]="platformItems"
+    ></gamestore-checkboxes-input>
+    <gamestore-selector-input
+      [name]="labels.publisherLabel"
+      [control]="getFormControl('publisher')"
+      [values]="publishers"
+    ></gamestore-selector-input>
+    <div>
+      <input type="file" (change)="onImage($event)" />
+    </div>
+  </gamestore-form>
+</article>

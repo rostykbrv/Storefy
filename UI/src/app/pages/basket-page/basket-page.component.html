@@ -1,0 +1,54 @@
+<div *ngIf="!!orderInfoList" class="basket-container">
+  <div *ngIf="!orderInfoList.length" class="empty-basket">
+    {{ labels.emptyBasketMessage }}
+  </div>
+
+  <div class="basket-items" *ngIf="orderInfoList.length">
+    <h1>{{labels.cartItemLabel}}</h1>
+    <div 
+    class="basket-item"
+    *ngFor="let item of orderInfoList">
+    <mat-divider></mat-divider>
+    <div class="game-container">
+      <a routerLink="{{ item.gamePageLink }}">
+        <div class="game-information">
+          <img src="{{item.game.imageUrl}}">
+          <div class="main-info">
+            <p class="game-title">{{item.game.name}}</p>
+            <p class="game-type">{{item.game.copyType}}</p>
+            <p class="game-size">{{item.game.gameSize}} GB</p>
+            <p class="game-price">{{item.game.price | currency}}</p>
+            <div class="basket-item-info">
+              <span class="item-quantity"
+                >{{ labels.orderDetailsQuantityLabel }}:
+                {{ item.details.quantity }}</span>
+            </div>
+          </div>
+        </div>
+        </a>
+        <div class="btn">
+          <a
+          href="javascript:void(0);"
+          color="accent"
+          type="button"
+          (click)="cancelBuy(item.game.key)"
+          >
+          {{ labels.deleteButtonLabel }}
+        </a>
+        </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="order-summary">
+    <h1>{{labels.orderSummaryLabel}}</h1>
+    <mat-divider></mat-divider>
+    <p><span>{{labels.subtotalLabel}}</span> <span>{{subTotal | currency}}</span></p>
+    <p><span>{{labels.taxesLabel}}</span> <span>{{taxes | currency}}</span></p>
+    <mat-divider></mat-divider>
+    <p><span class="total-title">{{labels.totalLabel}}</span><span class="total">{{totalPrice | currency}} </span></p>
+    <div *ngIf="!!orderInfoList?.length">
+      <a mat-raised-button color="primary"  routerLink="{{ links.get(pageRoutes.MakeOrder) }}"><span>{{labels.makeOrderButtonLabel}}</span></a>
+    </div>
+  </div>  
+</div>
